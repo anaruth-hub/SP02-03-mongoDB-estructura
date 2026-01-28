@@ -1,0 +1,52 @@
+[
+  {
+    "_id": { "$oid": "65f000000000000000010201" },
+    "glass_name": "RB-Classic-001",
+    "brand": "Rayban",
+    "frame_type": "metallic",
+    "frame_color": "black",
+    "graduations": { "left": 2.3, "right": 2.0 },
+    "lens_colors": { "left": "transparent", "right": "transparent" },
+    "price": { "$numberDecimal": "127.00" },
+    "provider": {
+      "name": "Optical Supplies S.A.",
+      "phone": "+34 931234567",
+      "fax": "+34 931234568",
+      "nif": "B12345678",
+      "address": {
+        "street": "Gran Via",
+        "number": 123,
+        "floor": "2",
+        "door": "B",
+        "city": "Barcelona",
+        "zip": "08010",
+        "country": "Spain"
+      }
+    },
+    "purchased_by": [
+      {
+        "customer_id": { "$oid": "65f000000000000000010301" },
+        "customer_info": {
+          "name": "Paula Puig",
+          "phone": "678921235",
+          "email": "paula@email.com",
+          "registration_date": { "$date": "2023-09-23T00:00:00.000Z" },
+          "address": {
+            "street": "Arago",
+            "number": 10,
+            "floor": "1",
+            "door": "A",
+            "city": "Barcelona",
+            "zip": "08013",
+            "country": "Spain"
+          }
+        },
+        "sold_by": {
+          "employee_id": { "$oid": "65f000000000000000010201" },
+          "name": "Laura Perez"
+        },
+        "sold_at": { "$date": "2023-09-23T18:30:00.000Z" }
+      }
+    ]
+  }
+]
