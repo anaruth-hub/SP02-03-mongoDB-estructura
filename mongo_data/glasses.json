@@ -1,0 +1,14 @@
+[
+  {
+    "_id": { "$oid": "65f000000000000000000101" },
+    "brand": "Rayban",
+    "frame_type": "metallic",
+    "frame_color": "black",
+    "left_graduation": 2.3,
+    "right_graduation": 2.0,
+    "left_glass_color": "transparent",
+    "right_glass_color": "transparent",
+    "price": 127.0,
+    "supplier_id": { "$oid": "65f000000000000000000001" }
+  }
+]

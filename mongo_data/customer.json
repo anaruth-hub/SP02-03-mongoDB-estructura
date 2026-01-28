@@ -1,0 +1,19 @@
+[
+  {
+    "_id": { "$oid": "65f000000000000000000301" },
+    "name": "Paula Puig",
+    "address": {
+      "street": "Carrer de la Pau",
+      "number": 12,
+      "floor": 2,
+      "door": "B",
+      "city": "Barcelona",
+      "zip": "08002",
+      "country": "Spain"
+    },
+    "phone": "678921235",
+    "email": "paula@email.com",
+    "registration_date": { "$date": "2023-09-23T00:00:00.000Z" },
+    "recommended_by": null
+  }
+]
