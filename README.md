@@ -1,6 +1,6 @@
-SP02-03-mongoDB-estructura — MongoDB Data Modeling (Optics Store)
-📖 Description
+# SP02-03-mongoDB-estructura — MongoDB Data Modeling (Optics Store)
 
+## 📖 Description
 This repository contains a MongoDB (NoSQL) data modeling solution for the optics store “Cul d'Ampolla”.
 It includes two alternative modeling approaches, supported by Draw.io diagrams and JSON sample data:
 
@@ -28,8 +28,7 @@ How to Validate
 
 Repository Structure
 
-✅ Requirements / Completion Criteria
-
+## ✅ Requirements / Completion Criteria
 To complete this task, the repository includes:
 
 A MongoDB data model for the domain
@@ -42,9 +41,8 @@ Example JSON documents/collections
 
 Documentation describing structure and technical decisions
 
-📌 Exercise Statement
-
-An optics store called “Cul d'Ampolla” wants to computerize the management of customers and eyeglasses sales.
+## 📌 Exercise Statement
+n optics store called “Cul d'Ampolla” wants to computerize the management of customers and eyeglasses sales.
 
 The system must store:
 
@@ -90,7 +88,7 @@ Employee who sold each pair of glasses
 
 Date/time of sale
 
-✨ Deliverables / What’s Included
+## ✨ Deliverables / What’s Included
 Exercise 01 — Separate Collections + References
 
 Goal: Model the domain using reusable entities with minimal duplication, using references between documents.
@@ -164,7 +162,7 @@ sale date/time
 
 ✅ This approach prioritizes a single-query UI read, trading some controlled denormalization for performance.
 
-🛠 Technologies
+## 🛠 Technologies
 
 Database: MongoDB
 
@@ -205,7 +203,7 @@ Documents tab
 
 Schema tab
 
-🔍 How to Validate (Checklist)
+## 🔍 How to Validate (Checklist)
 
 Before submitting, confirm:
 
@@ -221,7 +219,7 @@ Before submitting, confirm:
 
  JSON sample data exists in /mongo_data
 
-📁 Repository Structure
+## 📁 Repository Structure
 model/
   ├─ optica_exercise01.drawio
   ├─ optica_exercise01.drawio.png
