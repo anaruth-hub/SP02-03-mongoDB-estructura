@@ -1,9 +1,48 @@
-Project Name
+SP02-03-mongoDB-estructura — MongoDB Data Modeling (Optics Store)
+📖 Description
 
-MongoDB Structure – Optics (Cul d'Ampolla)
-Description: This repository contains the NoSQL (MongoDB) data modeling solution for the “Cul d'Ampolla” optics store. It includes two alternative models (Exercise 01 and Exercise 02) expressed as diagrams (Draw.io) and JSON collection examples.
+This repository contains a MongoDB (NoSQL) data modeling solution for the optics store “Cul d'Ampolla”.
+It includes two alternative modeling approaches, supported by Draw.io diagrams and JSON sample data:
 
-📌 Exercise Statement (if applicable)
+Exercise 01: Separate collections + references (ObjectId-style)
+
+Exercise 02: UI-oriented model where glasses are the main “view” (catalog + purchase history)
+
+🧭 Table of Contents
+
+Requirements
+
+Exercise Statement
+
+Deliverables
+
+Exercise 01
+
+Exercise 02
+
+Technologies
+
+Setup & Execution
+
+How to Validate
+
+Repository Structure
+
+✅ Requirements / Completion Criteria
+
+To complete this task, the repository includes:
+
+A MongoDB data model for the domain
+
+Two alternative solutions (Exercise 01 + Exercise 02)
+
+Diagrams explaining each model
+
+Example JSON documents/collections
+
+Documentation describing structure and technical decisions
+
+📌 Exercise Statement
 
 An optics store called “Cul d'Ampolla” wants to computerize the management of customers and eyeglasses sales.
 
@@ -13,7 +52,7 @@ Supplier
 
 Name
 
-Address: street, number, floor, door, city, zip code, country
+Address (street, number, floor, door, city, ZIP code, country)
 
 Phone, fax, NIF
 
@@ -21,13 +60,13 @@ Glasses
 
 Brand
 
-Graduation for each lens (left/right)
+Graduation per lens (left / right)
 
 Frame type (floating / plastic / metallic)
 
 Frame color
 
-Lens color (left/right)
+Lens color (left / right)
 
 Price
 
@@ -47,60 +86,26 @@ Recommended by another customer (optional)
 
 Sales
 
-Which employee sold each pair of glasses
+Employee who sold each pair of glasses
 
-Date/time of the sale
+Date/time of sale
 
-✨ Features (if applicable)
+✨ Deliverables / What’s Included
+Exercise 01 — Separate Collections + References
 
-Exercise 01: Classic MongoDB modeling using separate collections (customers, employees, suppliers, glasses, sales) with references between documents.
+Goal: Model the domain using reusable entities with minimal duplication, using references between documents.
 
-Exercise 02: UI-oriented modeling where glasses are the main “view” (catalog), embedding provider info and purchase history in a single document structure.
+Artifacts:
 
-🛠 Technologies
+Diagram:
 
-Database: MongoDB
+model/optica_exercise01.drawio
 
-Tools: MongoDB Compass, Draw.io
+model/optica_exercise01.drawio.png
 
-Version Control: Git / GitHub
+Sample data:
 
-🚀 Installation and Run
-
-Clone the repository:
-git clone <YOUR_GITHUB_REPO_URL>
-
-Start MongoDB (local or Docker) and open MongoDB Compass.
-Default connection example:
-mongodb://localhost:27017
-
-Import the JSON files into MongoDB Compass:
-
-Create/open the database for each exercise (recommended naming):
-
-optica_store (Exercise 01)
-
-optica_store_ex2 (Exercise 02)
-
-Create the collections and use Import Data to load the .json files.
-
-Validate your data structure using Compass (Documents / Schema tabs).
-
-No automated tests are included because this task focuses on data modeling and documentation.
-
-📸 Demo (if applicable)
-
-Not applicable. (This project is a data model + documentation repository.)
-
-🧩 Diagrams and Technical Decisions (if applicable)
-Exercise 01 (Separate Collections + References)
-
-Goal: model the domain with normalized collections and references (similar to relational thinking but in MongoDB).
-Included artifacts:
-
-Diagram: model/optica_exercise01.drawio and model/optica_exercise01.drawio.png
-
-Sample collections (JSON): mongo_data/Exercise01/
+mongo_data/Exercise01/
 
 Collections:
 
@@ -114,35 +119,117 @@ glasses
 
 sale
 
-Key decision: Use ObjectId references between collections (e.g., sale.customer_id, sale.employee_id, sale.glasses_id, glasses.supplier_id) to avoid duplication and keep entities reusable.
+Key decision:
+Use reference fields to represent relationships, for example:
 
-Exercise 02 (Glasses as the “View” / UI-Oriented Model)
+sale.customer_id
 
-Goal: If the UI perspective is “glasses”, keep a single document structure focused on catalog + purchase history.
-Included artifacts:
+sale.employee_id
 
-Diagram: model/optica_exercise02.drawio and model/optica_exercise02.drawio.png
+sale.glasses_id
 
-Sample collection (JSON): mongo_data/Exercise02/glasses_catalog.json
+glasses.supplier_id
+
+Exercise 02 — UI-Oriented Model (Glasses as Main View)
+
+Goal: Optimize reads when the UI perspective is “glasses” (catalog + purchase history), using a single main collection.
+
+Artifacts:
+
+Diagram:
+
+model/optica_exercise02.drawio
+
+model/optica_exercise02.drawio.png
+
+Sample data:
+
+mongo_data/Exercise02/glasses_catalog.json
 
 Main collection:
 
 glasses_catalog
 
-Key decision:
+Key decisions:
 
-Embed provider details inside the glasses document.
+Embed supplier details inside each glasses document
 
-Use an array purchased_by[] to keep purchase history, including customer snapshot and employee/sale info.
+Store purchase history in purchased_by[], including:
 
-This design prioritizes reading the full UI view in one query, at the cost of some controlled duplication (denormalization).
+customer snapshot
+
+employee info
+
+sale date/time
+
+✅ This approach prioritizes a single-query UI read, trading some controlled denormalization for performance.
+
+🛠 Technologies
+
+Database: MongoDB
+
+Tools: MongoDB Compass, Draw.io
+
+Version Control: Git / GitHub
+
+🚀 Setup & Execution
+1) Clone the repository
+git clone <YOUR_GITHUB_REPO_URL>
+cd SP02-03-mongoDB-estructura
+
+2) Run MongoDB
+
+Use MongoDB locally or with Docker.
+
+Default connection example:
+
+mongodb://localhost:27017
+
+3) Import JSON data (MongoDB Compass)
+
+Open MongoDB Compass
+
+Connect to MongoDB (mongodb://localhost:27017)
+
+Create/open databases (recommended names):
+
+optica_store (Exercise 01)
+
+optica_store_ex2 (Exercise 02)
+
+Create collections and import the .json files using Import Data
+
+Validate using:
+
+Documents tab
+
+Schema tab
+
+🔍 How to Validate (Checklist)
+
+Before submitting, confirm:
+
+ Exercise 01 database includes: customer, employee, supplier, glasses, sale
+
+ Exercise 01 collections use reference fields for relationships
+
+ Exercise 02 database includes: glasses_catalog
+
+ glasses_catalog embeds supplier details and contains purchased_by[]
+
+ Diagrams exist in /model for both exercises
+
+ JSON sample data exists in /mongo_data
 
 📁 Repository Structure
+model/
+  ├─ optica_exercise01.drawio
+  ├─ optica_exercise01.drawio.png
+  ├─ optica_exercise02.drawio
+  └─ optica_exercise02.drawio.png
 
-model/ → Draw.io diagrams (.drawio and exported .png)
+mongo_data/
+  ├─ Exercise01/
+  └─ Exercise02/
 
-mongo_data/Exercise01/ → JSON files for Exercise 01 collections
-
-mongo_data/Exercise02/ → JSON file for Exercise 02 collection
-
-README.md → Project documentation
+README.md
